@@ -8,7 +8,10 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/login',
@@ -24,6 +27,21 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta && to.meta.auth) {
+    if (localStorage.token) {
+      next()
+    }
+  } else {
+    if (to.name !== 'Login') {
+      next('/login')
+    } else {
+      next('/')
+    }
+  }
+  next()
 })
 
 export default router

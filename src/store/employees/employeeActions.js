@@ -7,3 +7,12 @@ export const loadEmployees = async ({ commit }) => {
     console.log(err)
     }
 }
+
+export const createEmployee = ({ commit, state }, employee) => {
+    employee.id = Number(state.employees[state.employees.length - 1].id) + 1
+    commit('createEmployee', employee)
+}
+
+export const deleteEmployee = ({ commit }, employeeID) => {
+    commit('deleteEmployee', employeeID)
+}

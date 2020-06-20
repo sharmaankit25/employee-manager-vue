@@ -16,3 +16,7 @@ export const createEmployee = ({ commit, state }, employee) => {
 export const deleteEmployee = ({ commit }, employeeID) => {
     commit('deleteEmployee', employeeID)
 }
+
+export const updateEmployee = ({ commit }, employee) => {
+    commit('updateEmployee', employee)
+}

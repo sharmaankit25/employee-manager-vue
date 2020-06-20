@@ -30,6 +30,14 @@ Vue.use(VueRouter)
     }
   },
   {
+    path: '/edit-employees',
+    name: 'employee-edit',
+    component: () => import('../views/EditEmployee'),
+    meta: {
+      auth: true
+    }
+  },
+  {
     path: '/login',
     name: 'Login',
     // route level code-splitting

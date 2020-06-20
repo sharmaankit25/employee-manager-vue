@@ -12,6 +12,10 @@
           :to="{ name: 'employee-details', params: { id: emp.id } }"
         >Details</router-link>
 
+        <router-link
+          :to="{ name: 'employee-edit', params: { id: emp.id } }"
+        >Edit</router-link>
+
         <button @click="deleteEmployee(emp.id)">Delete</button>
       </li>
     </ul>

@@ -22,8 +22,11 @@ export default {
     },
     mounted () {
         const { id } = this.$route.params
-        console.log(id)
-        this.emp = this.employees.find(emp => emp.id === id)
+        if (this.employees.length) {
+            this.emp = this.employees.find(emp => emp.id === id)
+        } else {
+            this.$router.push('/')
+        }
     }
 }
 </script>

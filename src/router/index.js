@@ -14,6 +14,14 @@ Vue.use(VueRouter)
     }
   },
   {
+    path: '/employees/:id',
+    name: 'employee-details',
+    component: () => import('../views/EmployeeDetail'),
+    meta: {
+      auth: true
+    }
+  },
+  {
     path: '/login',
     name: 'Login',
     // route level code-splitting
